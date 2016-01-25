@@ -76,28 +76,28 @@ export const I386_THREAD_STATE = X86_THREAD_STATE32;
 export const I386_FLOAT_STATE = X86_FLOAT_STATE32;
 export const I386_EXCEPTION_STATE = X86_EXCEPTION_STATE32;
 export enum ThreadStateFlags {
-    CARRY = 0x1,
-    X0 = 0x2,
-    PARITY = 0x4,
-    X1 = 0x8,
-    ADJUST = 0x10,
-    X2 = 0x20,
-    ZERO = 0x40,
-    SIGN = 0x80,
-    TRAP = 0x100,
-    INTERRUPT = 0x200,
-    DIRECTION = 0x400,
-    OVERFLOW = 0x800,
-    IOPL1 = 0x1000,
-    IOPL2 = 0x2000,
-    NESTEDTASK = 0x4000,
-    X3 = 0x8000,
-    RESUME = 0x10000,
-    V86MODE = 0x20000,
-    ALIGNCHECK = 0x40000,
-    VINT = 0x80000,
-    VINTPENDING = 0x100000,
-    CPUID = 0x200000
+    carry = 0x1,
+    x0 = 0x2,
+    parity = 0x4,
+    x1 = 0x8,
+    adjust = 0x10,
+    x2 = 0x20,
+    zero = 0x40,
+    sign = 0x80,
+    trap = 0x100,
+    interrupt = 0x200,
+    direction = 0x400,
+    overflow = 0x800,
+    iopl1 = 0x1000,
+    iopl2 = 0x2000,
+    nestedtask = 0x4000,
+    x3 = 0x8000,
+    resume = 0x10000,
+    v86mode = 0x20000,
+    aligncheck = 0x40000,
+    vint = 0x80000,
+    vintpending = 0x100000,
+    cpuid = 0x200000
 }
 // TYPES ///////////////////////////////////////////////////////////////////////
 export const vm_size_t = arch.pointerType;
@@ -275,11 +275,32 @@ export const _STRUCT_X86_FLOAT_STATE32 = Struct({
 export const _STRUCT_X86_FLOAT_STATE32_t = ref.refType(_STRUCT_X86_FLOAT_STATE32);
 
 export enum fpu_fcw_enum {
-    
+    res2 = 0x7,
+    res1 = 0x8,
+    rc = 0x30,
+    pc = 0xC0,
+    res0 = 0x300,
+    precis = 0x400,
+    undfl = 0x800,
+    ovrfl = 0x1000,
+    zdiv = 0x2000,
+    denorm = 0x4000
 }
 
 export enum fpu_fsw_enum {
-    
+    busy = 0x1,
+    c2_alt = 0x2,
+    tos = 0x1C,
+    c2 = 0x20,
+    c1 = 0x40,
+    c0 = 0x80,
+    errsumm = 0x100,
+    stkflt = 0x200,
+    precis = 0x400,
+    undfl = 0x800,
+    ovrfl = 0x1000,
+    zdiv = 0x2000,
+    denorm = 0x4000
 }
 
 export const _STRUCT_X86_FLOAT_STATE64 = Struct({

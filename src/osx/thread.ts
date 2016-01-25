@@ -1,5 +1,5 @@
 import {IThread, ThreadState32, ThreadState64, DebugState, ExceptionState, 
-    FloatState32, FloatState64, FpControlFlags, FpStatusFlags, Flags} from '../i-thread';
+    FloatState32, FloatState64, FpControlFlags, FpStatusFlags, ThreadFlags} from '../i-thread';
 import {BreakpointController} from '../breakpoint-controller';
 import * as kernel from './osx-kernel';
 import {checkReturn} from './utils';
@@ -45,7 +45,7 @@ export class Thread implements IThread {
         y.es = x.es;
         y.fs = x.fs;
         y.gs = x.gs;
-        y.eflags = translateEnum(x.eflags, kernel.ThreadStateFlags, Flags);
+        y.eflags = translateEnum(x.eflags, kernel.ThreadStateFlags, ThreadFlags);
         return Promise.resolve(y);
     }
     setThreadState32(x: ThreadState32): Promise<{}> {
@@ -65,7 +65,7 @@ export class Thread implements IThread {
         y.es = x.es;
         y.fs = x.fs;
         y.gs = x.gs;
-        y.eflags = translateEnum(x.eflags, Flags, kernel.ThreadStateFlags);
+        y.eflags = translateEnum(x.eflags, ThreadFlags, kernel.ThreadStateFlags);
         this._setState(kernel.X86_THREAD_STATE32, kernel._STRUCT_X86_THREAD_STATE32, y);
         return Promise.resolve();
     }
@@ -92,7 +92,7 @@ export class Thread implements IThread {
         y.cs = x.cs;
         y.fs = x.fs;
         y.gs = x.gs;
-        y.rflags = translateEnum(x.rflags, kernel.ThreadStateFlags, Flags);
+        y.rflags = translateEnum(x.rflags, kernel.ThreadStateFlags, ThreadFlags);
         return Promise.resolve(y);
     }
     setThreadState64(x: ThreadState64): Promise<{}> {
@@ -117,15 +117,15 @@ export class Thread implements IThread {
         y.cs = x.cs;
         y.fs = x.fs;
         y.gs = x.gs;
-        y.rflags = translateEnum(x.rflags, Flags, kernel.ThreadStateFlags);
+        y.rflags = translateEnum(x.rflags, ThreadFlags, kernel.ThreadStateFlags);
         this._setState(kernel.X86_THREAD_STATE64, kernel._STRUCT_X86_THREAD_STATE64, y);
         return Promise.resolve();
     }
     getFloatState32(): Promise<FloatState32> {
         let x: any = this._getState(kernel.X86_FLOAT_STATE32, kernel._STRUCT_X86_FLOAT_STATE32);
         let y = new FloatState32();
-        y.fpu_fcw = translateEnum(x.fpu_fcw, kernel.ThreadStateFlags, FpControlFlags);
-        y.fpu_fsw = translateEnum(x.fpu_fsw, kernel.ThreadStateFlags, FpStatusFlags);
+        y.fpu_fcw = translateEnum(x.fpu_fcw, kernel.fpu_fcw_enum, FpControlFlags);
+        y.fpu_fsw = translateEnum(x.fpu_fsw, kernel.fpu_fsw_enum, FpStatusFlags);
         y.fpu_reserved = [x.fpu_reserved[0], x.fpu_reserved[1]];
         y.fpu_ftw = x.fpu_ftw;
         y.fpu_rsrv1 = x.fpu_rsrv1;
@@ -160,8 +160,8 @@ export class Thread implements IThread {
     }
     setFloatState32(x: FloatState32): Promise<{}> {
         let y = new kernel._STRUCT_X86_FLOAT_STATE32();
-        y.fpu_fcw = translateEnum(x.fpu_fcw, FpControlFlags, kernel.ThreadStateFlags);
-        y.fpu_fsw = translateEnum(x.fpu_fsw, FpStatusFlags, kernel.ThreadStateFlags);
+        y.fpu_fcw = translateEnum(x.fpu_fcw, FpControlFlags, kernel.fpu_fcw_enum);
+        y.fpu_fsw = translateEnum(x.fpu_fsw, FpStatusFlags, kernel.fpu_fsw_enum);
         y.fpu_reserved = [x.fpu_reserved[0], x.fpu_reserved[1]];
         y.fpu_ftw = x.fpu_ftw;
         y.fpu_rsrv1 = x.fpu_rsrv1;
@@ -198,8 +198,8 @@ export class Thread implements IThread {
     getFloatState64(): Promise<FloatState64> {
         let x: any = this._getState(kernel.X86_FLOAT_STATE64, kernel._STRUCT_X86_FLOAT_STATE64)
         let y = new FloatState64();
-        y.fpu_fcw = translateEnum(x.fpu_fcw, kernel.ThreadStateFlags, FpControlFlags);
-        y.fpu_fsw = translateEnum(x.fpu_fsw, kernel.ThreadStateFlags, FpStatusFlags);
+        y.fpu_fcw = translateEnum(x.fpu_fcw, kernel.fpu_fcw_enum, FpControlFlags);
+        y.fpu_fsw = translateEnum(x.fpu_fsw, kernel.fpu_fsw_enum, FpStatusFlags);
         y.fpu_reserved = [x.fpu_reserved[0], x.fpu_reserved[1]];
         y.fpu_ftw = x.fpu_ftw;
         y.fpu_rsrv1 = x.fpu_rsrv1;
@@ -244,8 +244,8 @@ export class Thread implements IThread {
     }
     setFloatState64(x: FloatState64): Promise<{}> {
         let y = new kernel._STRUCT_X86_FLOAT_STATE64();
-        y.fpu_fcw = translateEnum(x.fpu_fcw, FpControlFlags, kernel.ThreadStateFlags);
-        y.fpu_fsw = translateEnum(x.fpu_fsw, FpStatusFlags, kernel.ThreadStateFlags);
+        y.fpu_fcw = translateEnum(x.fpu_fcw, FpControlFlags, kernel.fpu_fcw_enum);
+        y.fpu_fsw = translateEnum(x.fpu_fsw, FpStatusFlags, kernel.fpu_fsw_enum);
         y.fpu_reserved = [x.fpu_reserved[0], x.fpu_reserved[1]];
         y.fpu_ftw = x.fpu_ftw;
         y.fpu_rsrv1 = x.fpu_rsrv1;

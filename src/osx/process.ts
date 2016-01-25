@@ -8,13 +8,13 @@ import * as kernel from './osx-kernel';
 import {checkReturn} from './utils';
 
 export class ProcessInfo implements IProcessInfo {
-    public processId: number
-    public processName: string
+    public id: number
+    public name: string
     
-    public open(writeAccess?: boolean): Promise<IProcess> {
+    public open(): Promise<IProcess> {
         let target: number = kernel.functions.mach_task_self();
         let port = ref.alloc('int', 1);
-        checkReturn(kernel.functions.task_for_pid(target, this.processId, port));
+        checkReturn(kernel.functions.task_for_pid(target, this.id, port));
         return Promise.resolve(new Process(this, port.deref()));
     }
 }

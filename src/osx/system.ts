@@ -36,8 +36,8 @@ export class System implements ISystem {
                 let name = path.split('/').slice(-1)[0];
                 
                 let processInfo = new ProcessInfo();
-                processInfo.processId = pid;
-                processInfo.processName = name;
+                processInfo.id = pid;
+                processInfo.name = name;
                 return processInfo;
             }).filter(x => x !== null);
         });
@@ -46,7 +46,7 @@ export class System implements ISystem {
     public getProcess(name: string): Promise<ProcessInfo> {
         return this.getProcesses().then(processes => {
             for (let processInfo of processes) {
-                if (processInfo.processName === name) {
+                if (processInfo.name === name) {
                     return processInfo;
                 }
             }

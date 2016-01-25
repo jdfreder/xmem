@@ -1,3 +1,5 @@
+// Use to manually test some of the API against a running Atom editor process.
+
 var xmem = require('./lib/index');
 xmem.getSystem().getProcess('Atom').then(pinfo => {
     console.log('ProcessInfo', pinfo);
