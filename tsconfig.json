@@ -1,0 +1,48 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": true,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "outDir": "lib",
+        "rootDir": "src"
+    },
+    "filesGlob": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "!node_modules/**",
+        "typings/**/*.d.ts"
+    ],
+    "files": [
+        "src/arch.ts",
+        "src/breakpoint-controller.ts",
+        "src/i-memory.ts",
+        "src/i-process.ts",
+        "src/i-system.ts",
+        "src/i-thread.ts",
+        "src/index.ts",
+        "src/osx/memory.ts",
+        "src/osx/osx-kernel.ts",
+        "src/osx/process.ts",
+        "src/osx/system.ts",
+        "src/osx/thread.ts",
+        "src/osx/utils.ts",
+        "src/utils.ts",
+        "typings/es6-promise/es6-promise.d.ts",
+        "typings/node-ffi/node-ffi-buffer.d.ts",
+        "typings/node/node.d.ts",
+        "typings/ref/ref.d.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
