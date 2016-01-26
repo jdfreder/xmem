@@ -24,7 +24,6 @@
     ],
     "files": [
         "src/arch.ts",
-        "src/breakpoint-controller.ts",
         "src/i-memory.ts",
         "src/i-process.ts",
         "src/i-system.ts",

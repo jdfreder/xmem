@@ -1,6 +1,5 @@
 import {IMemory} from './i-memory';
 import {IThread} from './i-thread';
-import {BreakpointController} from './breakpoint-controller';
 
 /**
  * An opened process
