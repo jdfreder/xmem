@@ -1,6 +1,6 @@
 {
   "name": "xmem",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A cross platform process memory manipulation and debugging API",
   "main": "lib/index.js",
   "scripts": {
