@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "npm run build:lib && npm run build:docs",
+    "build:lib": "tsc",
+    "build:docs": "typedoc --options scripts/tdoptions.json"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "tsd": "^0.6.5",
+    "typedoc": "^0.3.12",
     "typescript": "^1.7.5"
   }
 }

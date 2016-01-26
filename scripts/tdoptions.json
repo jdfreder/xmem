@@ -1,0 +1,15 @@
+{
+  "module": "commonjs",
+  "target": "ES5",
+  "excludeNotExported": true,
+  "mode": "file",
+  "out": "docs",
+  "readme": "API.md",
+  "src": [
+    "src/index.ts",
+    "typings/es6-promise/es6-promise.d.ts",
+    "typings/node-ffi/node-ffi-buffer.d.ts",
+    "typings/node/node.d.ts",
+    "typings/ref/ref.d.ts"
+  ]
+}
