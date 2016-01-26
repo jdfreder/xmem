@@ -1,16 +1,21 @@
 {
   "name": "xmem",
   "version": "0.0.1",
-  "description": "",
+  "description": "A cross platform process memory manipulation and debugging API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run build",
     "build": "npm run build:lib && npm run build:docs",
     "build:lib": "tsc",
     "build:docs": "typedoc --options scripts/tdoptions.json"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "jdfreder",
+  "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/jdfreder/xmem"
+  },
   "dependencies": {
     "ffi": "^2.0.0",
     "ref-array": "^1.1.2"

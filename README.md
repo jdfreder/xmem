@@ -1,6 +1,6 @@
 # xmem
 
-Xmem is a cross platform process memory manipulation and debugging API.  If provides the following functionality:
+Xmem is a cross platform process memory manipulation and debugging API.  It provides the following functionality:
 
 - Enumeration of all active processes on the machine  
 - Memory read/write access of other processes  
