@@ -23,12 +23,6 @@ export interface IProcess {
     memory: IMemory;
     
     /**
-     * Manages the debug breakpoints for the process
-     * @type {BreakpointController}
-     */
-    breakpoints: BreakpointController;
-    
-    /**
      * Gets the threads of the process
      * @return {Promise<IThread[]>} threads
      */

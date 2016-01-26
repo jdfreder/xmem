@@ -1,7 +1,6 @@
 const ref = require('ref');
 const ArrayType = require('ref-array')
 import {IProcessInfo, IProcess} from '../i-process';
-import {BreakpointController} from '../breakpoint-controller';
 import {Memory} from './memory';
 import {Thread} from './thread';
 import * as kernel from './osx-kernel';
@@ -23,16 +22,10 @@ export class Process implements IProcess {
     public info: ProcessInfo;
     private _taskId: number;
     private _memory: Memory;
-    private _breakpoints: BreakpointController;
     
     constructor(info: ProcessInfo, taskId: number) {
         this._taskId = taskId;
         this._memory = new Memory(taskId);
-        this._breakpoints = new BreakpointController(this._memory);
-    }
-    
-    get breakpoints(): BreakpointController {
-        return this._breakpoints;
     }
     
     get memory(): Memory {
@@ -51,7 +44,7 @@ export class Process implements IProcess {
             var UIntArray = ArrayType('uint');
             let threadIds = Array.prototype.concat.apply([], new UIntArray(data));
             
-            resolve(threadIds.map(threadId => new Thread(threadId, this._breakpoints)));
+            resolve(threadIds.map(threadId => new Thread(threadId)));
         });
     }
     

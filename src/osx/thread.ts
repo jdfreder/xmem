@@ -1,19 +1,16 @@
 import {IThread, ThreadState32, ThreadState64, DebugState, ExceptionState, 
     FloatState32, FloatState64, FpControlFlags, FpStatusFlags, ThreadFlags} from '../i-thread';
-import {BreakpointController} from '../breakpoint-controller';
 import * as kernel from './osx-kernel';
 import {checkReturn} from './utils';
 import ref = require('ref');
 import {translateEnum} from '../utils';
 
 export class Thread implements IThread {
-    public constructor(threadId: number, breakpoints: BreakpointController) {
+    public constructor(threadId: number) {
         this.id = threadId;
-        this._breakpoints = breakpoints;
     }
     
     public id: number;
-    private _breakpoints: BreakpointController;
     
     pause(): Promise<{}> {
         checkReturn(kernel.functions.thread_suspend(this.id));
