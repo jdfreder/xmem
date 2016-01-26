@@ -1,6 +1,6 @@
 {
   "name": "xmem",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cross platform process memory manipulation and debugging API",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
   "author": "jdfreder",
   "license": "MIT",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/jdfreder/xmem"
+    "type": "git",
+    "url": "https://github.com/jdfreder/xmem"
   },
   "dependencies": {
     "ffi": "^2.0.0",
