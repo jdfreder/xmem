@@ -9,4 +9,4 @@ var xmem = require('xmem');
 var system = xmem.getSystem();
 ```
 
-xmem exports a single function, [getSystem](globals.html#getsystem), which gets a handle to the host operating system.  From there you can search through running processes, open an individual process, and  begin manipulating its memory.  
+xmem exports a single function `getSystem` which when called returns an [ISystem](interfaces/isystem.html).  Using the `ISystem` instance you can search through running processes, open an individual process, and  begin manipulating its memory.  

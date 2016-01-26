@@ -21,4 +21,4 @@ npm install xmem --save
 
 ## Usage
 
-See the [API documentation](http://jdfreder.github.io/xmem/docs/index.html) for instructions.
+See the [API documentation](http://jdfreder.github.io/xmem/docs) for instructions.
