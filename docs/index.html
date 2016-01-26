@@ -65,7 +65,13 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="welcome">Welcome</h1>
+				<h1 id="xmem-api-documentation">xmem API documentation</h1>
+				<p>If you haven&#39;t yet installed xmem, view the <a href="https://github.com/jdfreder/xmem">README on GitHub</a>.  </p>
+				<p>Once xmem is installed, you can import and use it.  For example:  </p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> xmem = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xmem'</span>);
+<span class="hljs-keyword">var</span> system = xmem.getSystem();
+</code></pre>
+				<p>xmem exports a single function, <a href="globals.html#getsystem">getSystem</a>, which gets a handle to the host operating system.  From there you can search through running processes, open an individual process, and  begin manipulating its memory.  </p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -95,9 +101,6 @@
 					</li>
 					<li class=" tsd-kind-enum tsd-is-external">
 						<a href="enums/fpu_fsw_enum.html" class="tsd-kind-icon">fpu_<wbr>fsw_<wbr>enum</a>
-					</li>
-					<li class=" tsd-kind-class tsd-is-external">
-						<a href="classes/breakpointcontroller.html" class="tsd-kind-icon">Breakpoint<wbr>Controller</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-external">
 						<a href="classes/debugstate.html" class="tsd-kind-icon">Debug<wbr>State</a>
